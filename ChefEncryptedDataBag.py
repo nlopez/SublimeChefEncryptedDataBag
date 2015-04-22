@@ -19,7 +19,7 @@ class ProcessDataBagItemMixin(object):
           sublime.error_message("data_bag_key not found:\n%s" % secret_file)
           return
         with open(secret_file) as f:
-          secret = f.read()
+          secret = f.read().rstrip('\n')
 
         # Get content
         region_all = sublime.Region(0, self.view.size())
